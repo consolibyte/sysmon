@@ -1,0 +1,36 @@
+{
+  "monitors": [
+    {
+      "type": "Database/Mysqli",
+
+      "user": "root",
+      "pass": "", 
+      "host": "localhost", 
+      "port": 3306
+    },
+    {
+      "type": "Resque",
+
+      "host": "localhost", 
+      "port": 6379,
+      "queues": [ "low", "default", "high" ]
+    }
+  ],
+
+  "loggers": [
+  	
+  	{
+  	  "type": "Monolog",
+  	  
+  	  "handlers": [ 
+  	  	
+  	  	{ 
+  	  		"class": "StreamHandler", 
+  	  		"dest": "/home/playscape/www/html/sysmon/logs/monolog.log" 
+  	  	} 
+
+  	  ]
+  	}
+
+  ]
+}
