@@ -1,6 +1,7 @@
 {
     "require": {
         "predis/predis": "~1.0",
-        "monolog/monolog": "~1.19"
+        "monolog/monolog": "~1.19",
+        "vube/monolog-splunk-formatter": "~1.0"
     }
 }

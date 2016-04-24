@@ -3,7 +3,7 @@ namespace Sysmon\Logger;
 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
-use Monolog\Handler\FirePHPHandler;
+use \Vube\Monolog\Formatter\SplunkLineFormatter;
 
 class Monolog extends \Sysmon\Logger
 {
@@ -15,11 +15,14 @@ class Monolog extends \Sysmon\Logger
 
 		$this->_logger = new Logger('my_logger');
 		
-		$this->_logger->pushHandler(new StreamHandler($opts['handlers'][0]['dest']));
+		$handler = new StreamHandler($opts['handlers'][0]['dest']);
+		$handler->setFormatter(new SplunkLineFormatter());
+
+		$this->_logger->pushHandler($handler);
 	}
 
 	public function log($name, $type, $data)
 	{
-		$this->_logger->addInfo($name . ' / ' . $type . ' ' . json_encode($data));
+		$this->_logger->addInfo($name . ' / ' . $type, $data);
 	}
 }

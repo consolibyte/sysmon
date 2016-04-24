@@ -4,10 +4,11 @@
       "type": "Database/Mysqli",
 
       "user": "root",
-      "pass": "", 
-      "host": "localhost", 
+      "pass": "root", 
+      "host": "galera2.uglyslug.com", 
       "port": 3306
     },
+
     {
       "type": "Resque",
 
@@ -15,6 +16,7 @@
       "port": 6379,
       "queues": [ "low", "default", "high" ]
     }
+    
   ],
 
   "loggers": [
